@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "formValues": {
+        "department": "SDG"
+      },
+      "desValue": {
+        "designation": "Graduate Trainee"
+      },
+      "stateValue": {
+        "States": "Goa"
+      },
+      "districtValue": {
+        "districts": "South Goa"
+      },
+      "id": "IC85"
+    },
+    {
+      "formValues": {
+        "department": "QAG"
+      },
+      "desValue": {
+        "designation": "Team Lead"
+      },
+      "stateValue": {
+        "States": "Chandigarh (UT)"
+      },
+      "districtValue": {
+        "districts": "Chandigarh"
+      },
+      "id": "IC66"
+    }
+  ]
+}
