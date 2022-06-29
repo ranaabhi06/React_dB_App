@@ -2,33 +2,33 @@
   "data": [
     {
       "formValues": {
+        "department": "Marketing"
+      },
+      "desValue": {
+        "designation": "Team Lead"
+      },
+      "stateValue": {
+        "States": "Chhattisgarh"
+      },
+      "districtValue": {
+        "districts": "Balrampur"
+      },
+      "id": "IC31"
+    },
+    {
+      "formValues": {
         "department": "SDG"
       },
       "desValue": {
         "designation": "Graduate Trainee"
       },
       "stateValue": {
-        "States": "Goa"
+        "States": "Andhra Pradesh"
       },
       "districtValue": {
-        "districts": "South Goa"
+        "districts": "Chittoor"
       },
-      "id": "IC85"
-    },
-    {
-      "formValues": {
-        "department": "QAG"
-      },
-      "desValue": {
-        "designation": "Team Lead"
-      },
-      "stateValue": {
-        "States": "Chandigarh (UT)"
-      },
-      "districtValue": {
-        "districts": "Chandigarh"
-      },
-      "id": "IC66"
+      "id": "IC88"
     }
   ]
 }

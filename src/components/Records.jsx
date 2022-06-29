@@ -4,6 +4,30 @@ function Records(props) {
   const { dbData } = props;
   console.log(dbData);
 
+  // const [idsToDelete, setIdsToDelete] = useState([]);
+  // console.log(idsToDelete);
+
+  let arrayId = [];
+  const setIdToDelete = (id) => {
+    arrayId.push(id);
+    props.onSetIdsToDelete(arrayId);
+    
+  };
+
+  // setIdsToDelete(arrayId);
+  // console.log(idsToDelete);
+  ;
+
+  //function for delete
+  // const idToEdit=(id)=>{
+  //   console.log(id);
+  //   props.onEdit(id);
+   
+  // }
+  // const editInfo=()=>{
+
+  // }
+
   return (
     <>
       <div>
@@ -15,14 +39,12 @@ function Records(props) {
               <p>
                 <input
                   onChange={(event) => {
-                    const id = info.id;
-                    console.log(id);
-                    return {id};
-                    
-
+                    setIdToDelete(info.id);
+                    // idToEdit(info.id);
                   }}
                   type="checkbox"
                 />
+
                 <br />
 
                 <label htmlFor="">ID: </label>
@@ -39,6 +61,10 @@ function Records(props) {
                 <br />
                 <label htmlFor="">District: </label>
                 {info.districtValue.districts}
+                <br></br>
+                <input 
+              type="button"
+               style={{ padding: "5px" }} value="Edit" />
               </p>
             );
           })}
