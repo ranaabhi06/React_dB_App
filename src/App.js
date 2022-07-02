@@ -3,6 +3,7 @@ import Dropdown from "./components/Dropdown";
 import Submit from "./components/Submit";
 import axios from "axios";
 import Records from "./components/Records";
+import Edit from "./components/Edit";
 
 function App() {
   const [formValues, setFormValues] = useState({});
@@ -32,6 +33,15 @@ function App() {
   //     })
   //     .catch(console.error);
   // }, []);
+
+  //clearForm
+
+  const clearForm = () => {
+    setFormValues();
+    setdesValue();
+    setStateValue();
+    setDistValue();
+  };
 
   useEffect(() => {
     setFinalData({
@@ -71,10 +81,10 @@ function App() {
     getData();
   }, []);
 
-  // const getToDB = async () => {
-  //   const res = await axios.get("http://localhost:9089/data");
-  //   setDbData(res.data);
-  // };
+  const getToDB = async (id) => {
+    return await axios.get(`http://localhost:9089/data${id}`);
+    // setDbData(res.data);
+  };
   // console.log(dbData);
 
   const postToDB = async () => {
@@ -90,7 +100,7 @@ function App() {
 
     getData();
 
-    console.log(postDb.data);
+    // console.log(postDb.data);
   };
 
   const [delId, setDelId] = useState("");
@@ -100,24 +110,27 @@ function App() {
     // loop through idsToDelete array and make axios calls on each one of the id in the array
 
     const del = await axios.delete(`http://localhost:9089/data/${id}`);
-    console.log(del.data);
-    
-    
+    // console.log(del.data);
   };
 
   idsToDelete.forEach(deleteData);
 
   //for edit
 
-  // const [idToEdit, setIdToEdit] = useState([]);
+  const editData = (id) => {
+    console.log(id);
+    return id;
 
-  // const editData = async (idsToDelete) => {
-  //   const edit = await axios.put(`http://localhost:9089/data/${idsToDelete}`);
-  //   console.log(edit.data);
+  };
+
+  // const [editData, setEditData] = useState([]);
+  // const onEdit = (data) => {
+  //   setEditData(data);
   // };
+  // console.log(editData)
 
   const tupac = (id) => {
-    console.log(id);
+    // console.log(id);
     setDelId(id);
   };
 
@@ -126,18 +139,13 @@ function App() {
     setIdsToDelete((pre) => [...pre, ids[0]]);
     getData();
   };
-  console.log(idsToDelete);
+  // console.log(idsToDelete);
 
-  // const onEdit = (id) => {
-  //   setIdToEdit(id);
-  //   console.log(idToEdit);
-  // };
-
-  const justchecking=()=>{
+  const justchecking = () => {
     // idsToDelete.forEach(deleteData);
     deleteData();
     getData();
-  }
+  };
 
   return (
     <form>
@@ -147,28 +155,39 @@ function App() {
         onSelect2={handleSelected2}
         onSelect3={handleSelected3}
       />
+      <Edit editData={editData} 
+       
+        // postDB={postToDB}
+      />
       <Submit
-        // onFormSubmit={handleFormSubmit}
+        clearForm={clearForm}
+       
         // onFormSubmit1={handleFormSubmit1}
         // onFormSubmit2={handleFormSubmit2}
         // onFormSubmit3={handleFormSubmit3}
         // onFinSubmit={onFinalSubmit}
         // getDb={getToDB}
         postDB={postToDB}
-        onClick={() => {}}
+        // onClick={() => {}}
       />
 
       <Records
         dbData={dbData}
         parentTochild={tupac}
         onSetIdsToDelete={handleSetIdsToDelete}
-        // onEdit={onEdit}
+        onEdit={editData}
       />
       <input
         type="button"
         // onClick={deleteData}
         onClick={justchecking}
-        style={{ padding: "5px", margin: "10px" }}
+        style={{
+          align: "center",
+          padding: "5px",
+          margin: "0px 0px 0px 10px",
+          color: "white",
+          background: "red",
+        }}
         value="Delete"
       />
     </form>

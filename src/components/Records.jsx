@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
+// import Db from '../../server/db.json';
+
 function Records(props) {
   const { dbData } = props;
-  console.log(dbData);
+  // console.log(dbData);
 
   // const [idsToDelete, setIdsToDelete] = useState([]);
   // console.log(idsToDelete);
@@ -11,44 +13,38 @@ function Records(props) {
   const setIdToDelete = (id) => {
     arrayId.push(id);
     props.onSetIdsToDelete(arrayId);
-    
   };
 
   // setIdsToDelete(arrayId);
   // console.log(idsToDelete);
-  ;
-
   //function for delete
-  // const idToEdit=(id)=>{
-  //   console.log(id);
-  //   props.onEdit(id);
-   
-  // }
-  // const editInfo=()=>{
-
-  // }
+  const idToEdit = (node) => {
+    console.log(props.onEdit(node));
+  };
 
   return (
     <>
       <div>
-        <p>Records-</p>
+        <p>
+          {" "}
+          <b>--RECORDS--</b>
+        </p>
 
         {dbData &&
           dbData.map((info) => {
             return (
-              <p>
+              <form>
                 <input
                   onChange={(event) => {
                     setIdToDelete(info.id);
-                    // idToEdit(info.id);
                   }}
                   type="checkbox"
                 />
-
                 <br />
-
-                <label htmlFor="">ID: </label>
-                {info.id}
+                <label htmlFor="">
+                  <strong>ID: </strong>
+                </label>
+                <b>{info.id}</b>
                 <br />
                 <label htmlFor="">Deparment: </label>
                 {info.formValues.department}
@@ -62,10 +58,22 @@ function Records(props) {
                 <label htmlFor="">District: </label>
                 {info.districtValue.districts}
                 <br></br>
-                <input 
-              type="button"
-               style={{ padding: "5px" }} value="Edit" />
-              </p>
+                <input
+                  type="button"
+                  onClick={() => {
+                    idToEdit(info.id);
+                    // idToEdit(info.id,info.formValues.department,info.desValue.designation ,info.stateValue.States ,info.districtValue.districts )
+                  }}
+                  style={{
+                    align: "center",
+                    padding: "5px",
+                    margin: "10px 0px 0px 10px",
+                    color: "white",
+                    background: "green",
+                  }}
+                  value="Edit"
+                />
+              </form>
             );
           })}
       </div>
