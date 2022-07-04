@@ -6,8 +6,8 @@ import Records from "./components/Records";
 import Edit from "./components/Edit";
 
 function App() {
-  const [formValues, setFormValues] = useState({});
-  const [desValue, setdesValue] = useState({});
+  const [department, setDepartment] = useState({});
+  const [designation, setDesignation] = useState({});
 
   const [stateValue, setStateValue] = useState({});
   const [districtValue, setDistValue] = useState({});
@@ -17,26 +17,13 @@ function App() {
   const [clearStates, setClearStates] = useState(false);
 
   const [finalData, setFinalData] = useState({
-    formValues: [],
-    desValue: [],
+    department: [],
+    designation: [],
     stateValue: [],
     districtValue: [],
   });
 
-  // create new state for receiving data from GET request
-  // run GET request in separate useEffect()
-  // when data, set state with GET data
-
-  // useEffect(() => {
-  //   getToDB()
-  //     .then((data) => {
-  //       console.log(data);
-  //       setDbData(data);
-  //     })
-  //     .catch(console.error);
-  // }, []);
-
-  //clearForm
+ 
 
   const clearForm = () => {
     setClearStates(true);
@@ -45,20 +32,20 @@ function App() {
   useEffect(() => {
     setFinalData({
       ...finalData,
-      formValues,
-      desValue,
+      department,
+      designation,
       stateValue,
       districtValue,
     });
-  }, [formValues, desValue, stateValue, districtValue]);
+  }, [department, designation, stateValue, districtValue]);
 
   const handleSelected = (selected) => {
     // console.log(selected);
-    setFormValues({ department: selected });
+    setDepartment({ department: selected });
   };
   const handleSelected1 = (selected) => {
     // console.log(selected);
-    setdesValue({ designation: selected });
+    setDesignation({ designation: selected });
   };
 
   const handleSelected2 = (selectedState) => {
