@@ -29,60 +29,6 @@
         "districts": "Dadra & Nagar Haveli"
       },
       "id": "IC77"
-    },
-    {
-      "formValues": {
-        "department": "PDG"
-      },
-      "desValue": {
-        "designation": "Intern"
-      },
-      "stateValue": {
-        "States": "Sikkim"
-      },
-      "districtValue": {
-        "districts": "East Sikkim"
-      },
-      "id": "IC29"
-    },
-    {
-      "formValues": {
-        "department": "Digital"
-      },
-      "desValue": {
-        "designation": "Graduate Trainee"
-      },
-      "stateValue": {
-        "States": "Bihar"
-      },
-      "districtValue": {
-        "districts": "Araria"
-      },
-      "id": "IC32"
-    },
-    {
-      "formValues": {
-        "department": "Marketing"
-      },
-      "desValue": {
-        "designation": "Engineer"
-      },
-      "stateValue": {
-        "States": "Chhattisgarh"
-      },
-      "districtValue": {
-        "districts": "Balrampur"
-      },
-      "id": "IC51"
-    },
-    {
-      "formValues": {},
-      "desValue": {},
-      "stateValue": {
-        "States": ""
-      },
-      "districtValue": {},
-      "id": "IC88"
     }
   ]
 }

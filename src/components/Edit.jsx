@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Edit = (props) => {
-  var editDataObj = props.editjsxData;
-  console.log(editDataObj);
+  var editDataObj = props.editData;
   // console.log(props.editjsxData);
   // console.log(editArray.stateValues.States);
   // const idToEdit = (node) => {

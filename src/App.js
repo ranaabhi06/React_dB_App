@@ -14,6 +14,8 @@ function App() {
 
   const [dbData, setDbData] = useState([]);
 
+  const [clearStates, setClearStates] = useState(false);
+
   const [finalData, setFinalData] = useState({
     formValues: [],
     desValue: [],
@@ -37,10 +39,7 @@ function App() {
   //clearForm
 
   const clearForm = () => {
-    setFormValues();
-    setdesValue();
-    setStateValue();
-    setDistValue();
+    setClearStates(true);
   };
 
   useEffect(() => {
@@ -93,6 +92,8 @@ function App() {
     });
 
     // console.log(finalData);
+    if (!finalData.formValues) return;
+
     let postDb = await axios.post("http://localhost:9089/data", {
       ...finalData,
       id: "IC" + Math.trunc(Math.random() * 99),
@@ -109,7 +110,7 @@ function App() {
   const deleteData = async (id) => {
     // loop through idsToDelete array and make axios calls on each one of the id in the array
 
-    const del = await axios.delete(`http://localhost:9089/data/${id}`);
+    let del = await axios.delete(`http://localhost:9089/data/${id}`);
     // console.log(del.data);
   };
 
@@ -120,14 +121,7 @@ function App() {
   const editData = (id) => {
     console.log(id);
     return id;
-
   };
-
-  // const [editData, setEditData] = useState([]);
-  // const onEdit = (data) => {
-  //   setEditData(data);
-  // };
-  // console.log(editData)
 
   const tupac = (id) => {
     // console.log(id);
@@ -155,13 +149,13 @@ function App() {
         onSelect2={handleSelected2}
         onSelect3={handleSelected3}
       />
-      <Edit editData={editData} 
-       
+      <Edit
+        editData={editData}
+
         // postDB={postToDB}
       />
       <Submit
         clearForm={clearForm}
-       
         // onFormSubmit1={handleFormSubmit1}
         // onFormSubmit2={handleFormSubmit2}
         // onFormSubmit3={handleFormSubmit3}
